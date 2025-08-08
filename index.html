@@ -1,69 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Test</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .question { background: #eee; margin-bottom: 15px; padding: 10px; }
-  </style>
+  <title>Linux Shell Exam</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <div id="quiz"></div>
-
-  <div>
-    <button id="btnGrade">Grade</button>
-    <button id="btnReset">Reiniciar</button>
+  <div id="quiz-container"></div>
+  <div class="buttons">
+    <button onclick="gradeQuiz()">Grade</button>
+    <button onclick="resetQuiz()">Reiniciar</button>
   </div>
 
-  <script>
-    const questions = [
-      {
-        pregunta: "Which file does give an overview of known shells on a Linux system?",
-        opciones: ["file1", "file2", "file3"],
-        respuesta: 1,
-        explicacion: "El archivo correcto es file2."
-      },
-      {
-        pregunta: "How to switch from one shell to another in the active terminal?",
-        opciones: ["method1", "method2", "method3"],
-        respuesta: 0,
-        explicacion: "La forma correcta es method1."
-      }
-    ];
-
-    function cargarPreguntas() {
-      const quiz = document.getElementById("quiz");
-      quiz.innerHTML = "";
-      questions.forEach((q, i) => {
-        const div = document.createElement("div");
-        div.className = "question";
-        div.innerHTML = `
-          <p>${i+1}. ${q.pregunta}</p>
-          ${q.opciones.map((opt, idx) => `
-            <label><input type="radio" name="q${i}" value="${idx}"> ${opt}</label>
-          `).join('')}
-          <p class="explicacion" style="display:none;">${q.explicacion}</p>
-        `;
-        quiz.appendChild(div);
-      });
-    }
-
-    function calificar() {
-      alert("Calificar no implementado en esta demo");
-    }
-
-    function resetear() {
-      cargarPreguntas();
-    }
-
-    document.getElementById("btnGrade").onclick = calificar;
-    document.getElementById("btnReset").onclick = resetear;
-
-    window.onload = cargarPreguntas;
-  </script>
-
+  <script src="questions.js"></script>
 </body>
 </html>

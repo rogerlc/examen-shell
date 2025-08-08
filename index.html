@@ -1,139 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DevOps/Linux Shell Exam</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  .question {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-  }
-  .question h3 {
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-  label {
-    display: block;
-    margin-bottom: 5px;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
-  label.correct {
-    background-color: #c8e6c9; /* green */
-    color: #256029;
-  }
-  label.incorrect {
-    background-color: #ffcdd2; /* red */
-    color: #b71c1c;
-  }
-  button {
-    margin-right: 5px;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    color: white;
-    font-size: 0.9em;
-  }
-  #btnGrade {
-    background-color: #4caf50; /* green */
-  }
-  #btnReset {
-    background-color: #f44336; /* red */
-  }
-  #btnExplain {
-    background-color: #2196f3; /* blue */
-  }
-  #result {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .explicacion {
-    display: none;
-    margin-top: 8px;
-    font-style: italic;
-    color: #555;
-  }
-  .btn-translate {
-    background-color: #009688;
-  }
-  .btn-pronounce {
-  background-color: #e91e63;
-  margin-left: 5px;
-}
-
-  .btn-word-translate {
-    background-color: #607d8b;
-  }
-  .btn-audio-normal {
-    background-color: #3f51b5;
-  }
-  .btn-audio-slow {
-    background-color: #673ab7;
-  }
-  .btn-pronounce {
-    background-color: #e91e63;
-  }
-  .btn-container {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: middle;
-  }
-  
-.popup-flotante {
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  cursor: move;
-  min-width: 200px;
-}
-
-.popup-flotante-header {
-  font-weight: bold;
-  margin-bottom: 10px;
-  cursor: move;
-  user-select: none;
-}
-
-.popup-flotante-close {
-  position: absolute;
-  top: 5px;
-  right: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  color: red;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linux Shell Exam</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="quiz-container"></div>
+  <div class="buttons">
+    <button onclick="gradeQuiz()">Grade</button>
+    <button onclick="resetQuiz()">Reiniciar</button>
+  </div>
 
-<h1>DevOps/Linux Shell Exam</h1>
-<div id="quiz"></div>
-
-<button id="btnGrade">Grade</button>
-<button id="btnExplain">Show Explanations</button>
-<button id="btnReset">Reset</button>
-
-<div id="result"></div>
-
-<script src="questions.js"></script>
-<script src="script.js"></script>
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

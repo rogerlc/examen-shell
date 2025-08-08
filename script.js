@@ -1,3 +1,4 @@
+console.log('Questions:', questions);
 function cargarPreguntas() {
   const quiz = document.getElementById("quiz");
   quiz.innerHTML = "";

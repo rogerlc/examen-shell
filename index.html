@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linux Shell Exam</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Linux Shell Practice Exam</h1>
+    <div id="question-container"></div>
+
+    <div class="controls">
+      <button id="grade">Grade</button>
+      <button id="restart">Restart</button>
+    </div>
+
+    <div class="speech-controls">
+      <button id="speak-btn">🔊 Leer pregunta</button>
+      <button id="translate-btn">🌐 Traducir pregunta</button>
+      <button id="voice-btn">🎤 Decir en inglés</button>
+    </div>
+
+    <div id="translation-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="translated-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

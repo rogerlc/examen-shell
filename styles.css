@@ -1,42 +1,100 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
-  background: #f4f4f4;
+  background: #f4f6f8;
+  color: #333;
 }
 
-.question {
-  background: white;
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 5px;
+#quiz-container {
+  max-width: 800px;
+  margin: auto;
 }
 
-.options label {
+.question-block {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.question-block p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.opcion {
   display: block;
-  margin-bottom: 5px;
+  margin: 10px 0;
+  font-size: 16px;
   cursor: pointer;
+  padding-left: 5px;
+}
+
+.opcion input {
+  margin-right: 10px;
 }
 
 .correct {
-  background-color: #c8e6c9;
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
 }
 
 .incorrect {
-  background-color: #ffcdd2;
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
 }
 
 .buttons {
-  margin: 20px 0;
+  text-align: center;
+  margin-top: 30px;
 }
 
 button {
-  margin-right: 10px;
-  padding: 8px 12px;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.explicacion {
+button:hover {
+  background-color: #0056b3;
+}
+
+.botones-pregunta {
   margin-top: 10px;
+}
+
+.botones-pregunta button {
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #6c757d;
+  color: white;
+}
+
+.botones-pregunta button:hover {
+  background-color: #5a6268;
+}
+
+.explicacion {
+  margin-top: 15px;
   font-style: italic;
   color: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .question-block {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin: 8px 0;
+  }
 }

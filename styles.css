@@ -1,8 +1,8 @@
+/* Estilo general */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   padding: 20px;
-  background: #f4f6f8;
-  color: #333;
+  background: #f4f4f4;
 }
 
 #quiz-container {
@@ -10,91 +10,95 @@ body {
   margin: auto;
 }
 
+/* Estilo de cada bloque de pregunta */
 .question-block {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.question-block p {
-  font-size: 18px;
-  font-weight: bold;
-}
-
+/* Opciones de respuestas en una línea separada */
 .opcion {
-  display: block;
+  display: flex;
+  align-items: center;
   margin: 10px 0;
   font-size: 16px;
-  cursor: pointer;
-  padding-left: 5px;
+  line-height: 1.4;
+  gap: 10px;
 }
 
 .opcion input {
-  margin-right: 10px;
+  flex-shrink: 0;
+  margin-right: 8px;
 }
 
-.correct {
-  background-color: #d4edda;
-  border-left: 5px solid #28a745;
-}
-
-.incorrect {
-  background-color: #f8d7da;
-  border-left: 5px solid #dc3545;
-}
-
-.buttons {
+/* Estilos de botones */
+.buttons, .botones-pregunta, .btn-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 button {
   margin: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
+  padding: 10px 15px;
+  font-size: 15px;
   border: none;
-  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #2980b9;
 }
 
-.botones-pregunta {
-  margin-top: 10px;
+/* Resultados de respuestas */
+.correct {
+  background-color: #d4edda;
 }
 
-.botones-pregunta button {
-  margin-right: 5px;
-  margin-top: 5px;
-  font-size: 14px;
-  background-color: #6c757d;
-  color: white;
+.incorrect {
+  background-color: #f8d7da;
 }
 
-.botones-pregunta button:hover {
-  background-color: #5a6268;
-}
-
+/* Explicación */
 .explicacion {
-  margin-top: 15px;
+  margin-top: 10px;
   font-style: italic;
   color: #555;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .question-block {
-    padding: 15px;
-  }
+/* Popup flotante (si usas traducción o audio flotante) */
+.popup-flotante {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 250px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  z-index: 9999;
+}
 
-  button {
-    width: 100%;
-    margin: 8px 0;
-  }
+.popup-flotante-header {
+  background-color: #f5f5f5;
+  padding: 10px;
+  cursor: move;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.popup-flotante-close {
+  float: right;
+  cursor: pointer;
+  color: #999;
+}
+
+.popup-flotante-body {
+  padding: 10px;
 }

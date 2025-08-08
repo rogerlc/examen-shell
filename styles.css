@@ -4,21 +4,17 @@ body {
   background: #f4f4f4;
 }
 
-#quiz-container {
-  max-width: 800px;
-  margin: auto;
-}
-
-.question-block {
+.question {
   background: white;
-  border-radius: 6px;
-  padding: 15px;
   margin-bottom: 20px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  border-radius: 5px;
 }
 
-.opcion {
-  margin: 5px 0;
+.options label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .correct {
@@ -30,12 +26,17 @@ body {
 }
 
 .buttons {
-  text-align: center;
-  margin-top: 30px;
+  margin: 20px 0;
 }
 
 button {
-  margin: 5px;
-  padding: 10px 15px;
-  font-size: 16px;
+  margin-right: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.explicacion {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
 }

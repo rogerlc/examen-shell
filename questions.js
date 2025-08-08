@@ -1,132 +1,112 @@
-// questions.js
-
 const questions = [
   {
     pregunta: "Which file does give an overview of known shells on a Linux system?",
-    opciones: ["/etc/shells", "/etc/passwd", "/etc/hosts"],
+    opciones: [
+      "/etc/shells",
+      "/etc/passwords",
+      "/etc/known_shells",
+      "/etc/shells.sh"
+    ],
     respuesta: 0,
-    explicacion: "The file /etc/shells lists available shells."
+    explicacion: "/etc/shells lists valid login shells. It's used by chsh and other tools. The rest are invalid or fictional."
   },
   {
     pregunta: "How to switch from one shell to another in the active terminal?",
-    opciones: ["Use the 'chsh' command", "Type the name of the shell", "Restart the terminal"],
-    respuesta: 1,
-    explicacion: "Simply typing the shell name switches to it."
+    opciones: [
+      "Enter the name of the new shell",
+      "Update the name of the active shell in \"/etc/shells\" file",
+      "Update the name of the active shell in \"~/.bashrc\" file",
+      "It can't be done in the active terminal because OS must be restarted"
+    ],
+    respuesta: 0,
+    explicacion: "Typing the name of the new shell (like `bash`, `zsh`, etc.) starts that shell temporarily. No config file needs to be edited, and no reboot is needed."
   },
   {
     pregunta: "Select all of user-specific startup files:",
-    opciones: [".bashrc", "/etc/profile", ".profile", "/etc/bash.bashrc"],
-    respuestas: [0, 2],
-    explicacion: "User-specific startup files are .bashrc and .profile."
+    opciones: [
+      "/etc/profile",
+      "/etc/.profile",
+      "~/.profile",
+      "~/.bashrc"
+    ],
+    respuestas: [2, 3],
+    explicacion: "`~/.profile` and `~/.bashrc` are user-specific startup files. `/etc/profile` is global. `/etc/.profile` doesn't exist."
+  },
+  {
+    pregunta: "Shell should not be used for (Select all of correct options):",
+    opciones: [
+      "Need data structures, such as linked lists or trees",
+      "Complex applications, where structured programming is a necessity (type-checking of variables, function prototypes, etc.)",
+      "If you’re mostly calling other utilities and are doing relatively little data manipulation",
+      "Mission-critical applications upon which you are betting the future of the company"
+    ],
+    respuestas: [0, 1, 3],
+    explicacion: "Shell scripts are unsuitable for complex data structures, strongly typed programming, and mission‑critical applications where robustness is key. They're fine for calling utilities and simple data manipulation."
+  },
+  {
+    pregunta: "Which command will list all environment variables?",
+    opciones: [
+      "printenv",
+      "env",
+      "set",
+      "all"
+    ],
+    respuestas: [0, 1, 2],
+    explicacion: "`printenv`, `env` and `set` all show environment variables, though `set` includes shell variables too."
+  },
+  {
+    pregunta: "What does the PATH environment variable contain?",
+    opciones: [
+      "A list of directories where the shell looks for commands",
+      "The default directory for opening files",
+      "The location of the user's home directory",
+      "A list of file types recognized by the system"
+    ],
+    respuesta: 0,
+    explicacion: "PATH is a colon-separated list of directories used to find executable programs."
+  },
+  {
+    pregunta: "What symbol is used to represent the current user's home directory?",
+    opciones: [
+      "~",
+      "#",
+      "/",
+      "%"
+    ],
+    respuesta: 0,
+    explicacion: "`~` is shorthand for the current user’s home directory in Unix-like systems."
+  },
+  {
+    pregunta: "What does the shebang line (#!/bin/bash) at the top of a script do?",
+    opciones: [
+      "Indicates the script should be run in the Bash shell",
+      "Marks the script as executable",
+      "Comments out the first line",
+      "Declares a variable"
+    ],
+    respuesta: 0,
+    explicacion: "The shebang tells the OS what interpreter to use to run the script."
+  },
+  {
+    pregunta: "What command is used to make a shell script executable?",
+    opciones: [
+      "chmod +x script.sh",
+      "bash script.sh",
+      "execute script.sh",
+      "sh script.sh"
+    ],
+    respuesta: 0,
+    explicacion: "`chmod +x` sets the executable bit so the script can be run directly."
+  },
+  {
+    pregunta: "What does the command `source ~/.bashrc` do?",
+    opciones: [
+      "Runs the .bashrc script in the current shell",
+      "Creates a new shell",
+      "Deletes and recreates the .bashrc file",
+      "Compiles the script"
+    ],
+    respuesta: 0,
+    explicacion: "`source` runs the file in the current shell session, applying any changes immediately."
   }
 ];
-
-// Renderizado
-
-const container = document.getElementById("quiz-container");
-
-function renderQuiz() {
-  container.innerHTML = ""; // limpiar
-
-  questions.forEach((q, idx) => {
-    const div = document.createElement("div");
-    div.classList.add("question-block");
-
-    // Pregunta + botones
-    div.innerHTML = `
-      <p><strong>${idx + 1}.</strong> <span class="question-text">${q.pregunta}</span></p>
-      ${q.opciones.map((op, i) => `
-        <label class="opcion">
-          <input type="${Array.isArray(q.respuestas) ? "checkbox" : "radio"}" name="q${idx}" value="${i}">
-          ${op}
-        </label>
-      `).join('')}
-      <div class="botones-pregunta">
-        <button onclick="leerPregunta(${idx})">📢 Leer</button>
-        <button onclick="traducirPregunta(${idx})">🌍 Traducir</button>
-        <button onclick="hablarPregunta(${idx})">🎤 Decir en inglés</button>
-        <button onclick="escucharPalabraSeleccionada(${idx})">🔊 Escuchar palabra</button>
-        <button onclick="escucharPronunciacion(${idx})">🎧 Escuchar mi pronunciación</button>
-      </div>
-      <p class="explicacion" style="display:none"><em>${q.explicacion}</em></p>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-// Funciones de los botones (ejemplos simplificados)
-
-function leerPregunta(idx) {
-  const text = questions[idx].pregunta;
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  speechSynthesis.speak(utterance);
-}
-
-function traducirPregunta(idx) {
-  const text = questions[idx].pregunta;
-  // Aquí puedes usar API o un diccionario estático
-  alert(`Traducción de: "${text}"`);
-}
-
-function hablarPregunta(idx) {
-  const text = questions[idx].pregunta;
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  speechSynthesis.speak(utterance);
-}
-
-function escucharPalabraSeleccionada(idx) {
-  const selected = window.getSelection().toString().trim();
-  if (!selected) return alert("Selecciona una palabra primero");
-  const utterance = new SpeechSynthesisUtterance(selected);
-  utterance.lang = "en-US";
-  speechSynthesis.speak(utterance);
-}
-
-function escucharPronunciacion(idx) {
-  if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
-    return alert("Tu navegador no soporta reconocimiento de voz.");
-  }
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.lang = "en-US";
-  recognition.start();
-
-  recognition.onresult = (e) => {
-    const spoken = e.results[0][0].transcript;
-    alert(`Dijiste: ${spoken}`);
-  };
-
-  recognition.onerror = (e) => alert(`Error: ${e.error}`);
-}
-
-// Funciones Grade y Reset
-
-function gradeQuiz() {
-  const blocks = document.querySelectorAll(".question-block");
-  blocks.forEach((block, idx) => {
-    const inputs = block.querySelectorAll("input");
-    const isMultiple = Array.isArray(questions[idx].respuestas);
-    const correct = isMultiple ? questions[idx].respuestas : [questions[idx].respuesta];
-
-    inputs.forEach(input => {
-      const val = parseInt(input.value);
-      input.parentElement.classList.remove("correct", "incorrect");
-      if (correct.includes(val)) {
-        input.parentElement.classList.add("correct");
-      } else if (input.checked) {
-        input.parentElement.classList.add("incorrect");
-      }
-    });
-
-    block.querySelector(".explicacion").style.display = "block";
-  });
-}
-
-function resetQuiz() {
-  container.innerHTML = "";
-  renderQuiz();
-}
-
-renderQuiz();

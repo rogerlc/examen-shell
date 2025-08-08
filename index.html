@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Linux Shell Exam</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="quiz-container"></div>
+  <div id="quiz"></div>
+
   <div class="buttons">
-    <button onclick="gradeQuiz()">Grade</button>
-    <button onclick="resetQuiz()">Reiniciar</button>
+    <button id="btnGrade">Calificar</button>
+    <button id="btnExplain">Mostrar Explicaciones</button>
+    <button id="btnReset">Reiniciar</button>
   </div>
 
-  <script src="questions.js"></script>
-  <script src="script.js"></script>
+  <div id="result"></div>
+
+  <script src="questions.js"></script> <!-- solo con el array de preguntas -->
+  <script src="script.js"></script> <!-- toda la lógica del quiz -->
 </body>
 </html>
